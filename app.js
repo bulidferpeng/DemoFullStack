@@ -1,1 +1,3 @@
-adwqd asdasd 
+function hello() {
+    console.log('hello world')
+}
