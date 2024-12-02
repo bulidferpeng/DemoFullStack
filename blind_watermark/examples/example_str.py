@@ -20,7 +20,7 @@ bwm.embed('output/or1.png')
 len_wm = len(bwm.wm_bit)  # 解水印需要用到长度
 print('Put down the length of wm_bit {len_wm}'.format(len_wm=len_wm))
 
-ori_img_shape = cv2.imread('pic/ori_img.jpeg').shape[:2]  # 抗攻击有时需要知道原图的shape
+ori_img_shape = cv2.imread('pic/or1.jpeg').shape[:2]  # 抗攻击有时需要知道原图的shape
 h, w = ori_img_shape
 
 # %% 解水印
@@ -41,7 +41,7 @@ x1, y1, x2, y2 = int(w * loc_r[0][0]), int(h * loc_r[0][1]), int(w * loc_r[1][0]
 att.cut_att3(input_filename='output/or1.png', output_file_name='output/screenshotAttack1.png',
              loc=(x1, y1, x2, y2), scale=scale)
 
-recover_crop(template_file='output/screenshotAttack1.png', output_file_name='output/screenshotAttack1_还原.png',
+recover_crop(template_file='output/screenshotAttack1.png', output_file_name='output/screenshotAttack1_revert.png',
              loc=(x1, y1, x2, y2), image_o_shape=ori_img_shape)
 
 bwm1 = WaterMark(password_wm=1, password_img=1)
